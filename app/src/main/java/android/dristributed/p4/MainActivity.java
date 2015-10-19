@@ -102,8 +102,9 @@ public class MainActivity extends AppCompatActivity {
         public void onTouchDown(float percent) {
             byte row = (byte) Math.floor(Const.ROW_NBR * percent);
             Log.i("P4", "row: " + row);
-            game.dropDisc(row);
-            drawGame();
+            if (game.dropDisc(row) != Const.FORBIDDEN_MOVE){
+                drawGame();
+            }
         }
 
         public View createBoardView() {
